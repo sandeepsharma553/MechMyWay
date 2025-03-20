@@ -39,7 +39,7 @@ const Login = ({ navigation }) => {
             AsyncStorage.setItem('user',JSON.stringify(user))
             setTimeout(()=>{
                 navigation.navigate('Home')
-            },3000)
+            },500)
            
            
             toast.show(

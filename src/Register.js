@@ -15,9 +15,6 @@ const Register = ({ navigation }) => {
     const [click, setClick] = useState(false);
     const { username, setUsername } = useState("");
     const { password, setPassword } = useState("");
-    const login = () => {
-
-    }
     const renderScene = SceneMap({
         first: Profile,
         second: Address,
@@ -55,6 +52,41 @@ const Register = ({ navigation }) => {
     );
 };
 export default Register;
+const Profile = () => {
+    return (
+        <SafeAreaView>
+            <View style={styles.inputView}>
+                <Text >Name</Text>
+            </View>
+        </SafeAreaView>
+    );
+}
+const Address = () => {
+    return (
+        <SafeAreaView>
+            <Text style={styles.inputView}>State</Text>
+            <Text style={styles.inputView}>District</Text>
+            <Text style={styles.inputView}>Tehsil</Text>
+            <Text style={styles.inputView}>Village</Text>
+            <Text style={styles.inputView}>Address</Text>
+            <Text style={styles.inputView}>Pincode</Text>
+        </SafeAreaView>
+    );
+}
+const Service = () => {
+    return (
+        <SafeAreaView>
+            <Text style={styles.inputView}>Item</Text>
+        </SafeAreaView>
+    );
+}
+const Location = () => {
+    return (
+        <SafeAreaView>
+            <Text style={styles.inputView}>Location</Text>
+        </SafeAreaView>
+    );
+}
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -105,39 +137,3 @@ const styles = StyleSheet.create({
         marginBottom: 5
     },
 })
-
-const Profile = () => {
-    return (
-        <SafeAreaView>
-           <View style={styles.inputView}>
-            <Text >Name</Text>
-           </View>
-        </SafeAreaView>
-    );
-}
-const Address = () => {
-    return (
-        <SafeAreaView>
-            <Text style={styles.inputView}>State</Text>
-            <Text style={styles.inputView}>District</Text>
-            <Text style={styles.inputView}>Tehsil</Text>
-            <Text style={styles.inputView}>Village</Text>
-            <Text style={styles.inputView}>Address</Text>
-            <Text style={styles.inputView}>Pincode</Text>
-        </SafeAreaView>
-    );
-}
-const Service = () => {
-    return (
-        <SafeAreaView>
-            <Text style={styles.inputView}>Item</Text>
-        </SafeAreaView>
-    );
-}
-const Location = () => {
-    return (
-        <SafeAreaView>
-            <Text style={styles.inputView}>Location</Text>
-        </SafeAreaView>
-    );
-}

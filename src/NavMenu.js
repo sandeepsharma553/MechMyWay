@@ -9,8 +9,10 @@ import HomeScreen from './HomeScreen';
 import Login from './Login';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Register from './Register';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 const NavMenu = ({ navigation }) => {
     const dimensions = useWindowDimensions();
     const isLargeScreen = dimensions.width >= 768;
@@ -210,6 +212,47 @@ export function NavProfile({ navigation }) {
         </Stack.Navigator>
     );
 }
+function MyTabs() {
+    return (
+      <Tab.Navigator
+        initialRouteName="Dashboard"
+        screenOptions={{
+          tabBarActiveTintColor: '#e91e63',
+        }}
+      >
+        <Tab.Screen
+          name="Dashboard"
+          component={NavDashboard}
+          options={{
+            tabBarLabel: 'Dashboard',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="home" color={color} size={size} />
+            ),
+          }}
+        />
+        {/* <Tab.Screen
+          name="Notifications"
+          component={Notifications}
+          options={{
+            tabBarLabel: 'Updates',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="bell" color={color} size={size} />
+            ),
+          }}
+        /> */}
+        <Tab.Screen
+          name="Profile"
+          component={NavProfile}
+          options={{
+            tabBarLabel: 'Profile',
+            tabBarIcon: ({ color, size }) => (
+              <MaterialCommunityIcons name="account" color={color} size={size} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+    );
+  }
 const styles = StyleSheet.create({
     container: {
         alignItems: "center",
